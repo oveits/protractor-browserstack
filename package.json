@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "browserstack-local": "^1.0.0",
-    "protractor": "^2.5.1"
+    "protractor": "^2.5.1",
+    "jasmine-reporters": "^2.2.1"
   },
   "license": "MIT"
 }
