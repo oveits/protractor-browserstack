@@ -14,6 +14,17 @@ exports.config = {
     'browserstack.debug': 'true'
   },
 
+  // OV: add JUnit reporter
+  // as found on http://stackoverflow.com/questions/21338019/setting-up-continuous-integration-of-protractor-using-jenkins
+  onPrepare: function() {
+    // The require statement must be down here, since jasmine-reporters
+    // needs jasmine to be in the global and protractor does not guarantee
+    // this until inside the onPrepare function.
+    require('jasmine-reporters');
+    jasmine.getEnv().addReporter(
+      new jasmine.JUnitXmlReporter('xmloutput', true, true));
+  },
+
   // Code to start browserstack local before start of test
   beforeLaunch: function(){
     console.log("Connecting local");
