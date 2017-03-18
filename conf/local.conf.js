@@ -21,10 +21,16 @@ exports.config = {
     // The require statement must be down here, since jasmine-reporters
     // needs jasmine to be in the global and protractor does not guarantee
     // this until inside the onPrepare function.
-    var jasmineReporters = require('jasmine-reporters');
+    // jasmine1 syntax:
+    require('jasmine-reporters');
     jasmine.getEnv().addReporter(
-        new jasmineReporters.JUnitXmlReporter('xmloutput', true, true)
+        new jasmine.JUnitXmlReporter('xmloutput', true, true)
     );
+    // jasmine2 syntax:
+//    var jasmineReporters = require('jasmine-reporters');
+//    jasmine.getEnv().addReporter(
+//        new jasmineReporters.JUnitXmlReporter('xmloutput', true, true)
+//    );
   },
 
   // Code to start browserstack local before start of test
